@@ -73,17 +73,69 @@ missing_char('kitten', 4) → 'kittn'
 def missing_char(str, n):
   return str[:n] + str[n+1:]  
   
+"""
+> monkey_trouble
+We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in trouble if
+they are both smiling or if neither of them is smiling. Return True if we are in trouble.
+
+monkey_trouble(True, True) → True
+monkey_trouble(False, False) → True
+monkey_trouble(True, False) → False
+"""
+def monkey_trouble(a_smile, b_smile):
+  if (a_smile and b_smile) is True or (a_smile or b_smile) is False:
+    return True
+  else:
+    return False
   
+"""
+> parrot_trouble
+We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are
+in trouble if the parrot is talking and the hour is before 7 or after 20. Return True if we are in trouble.
+
+parrot_trouble(True, 6) → True
+parrot_trouble(True, 7) → False
+parrot_trouble(False, 6) → False
+"""
+def parrot_trouble(talking, hour):
+  if (hour < 7 or hour > 20) and talking is True:
+      return True
+  else:
+    return False
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+"""
+> pos_neg
+Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is
+True, then return True only if both are negative.
+
+pos_neg(1, -1, False) → True
+pos_neg(-1, 1, False) → True
+pos_neg(-4, -5, True) → True
+"""
+def pos_neg(a, b, negative):
+  if (a <= 0 and b <= 0) and (negative is True):
+    return True
+  elif (a <= 0 and b >= 0) and negative is False:
+    return True
+  elif (a >= 0 and b <= 0) and negative is False:
+    return True
+  else:
+    return False
+
+"""
+> front_back
+Given a string, return a new string where the first and last chars have been exchanged.
+
+front_back('code') → 'eodc'
+front_back('a') → 'a'
+front_back('ab') → 'ba'
+"""
+def front_back(str):
+  if len(str) > 1:
+    return str[-1:] + str[1:-1] + str[:1]
+  else:
+    return str
+
 """
 > sum_double
 Given two int values, return their sum. Unless the two values are the same, then return double their sum.
